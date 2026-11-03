@@ -1,0 +1,235 @@
+
+/* ===== GENERAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f9fc;
+    color: #243447;
+    line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: #075985;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 20px;
+    font-size: 36px;
+}
+
+/* ===== NAVIGATION: FLEXBOX ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #0369a1;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #075985;
+    font-size: 30px;
+}
+
+/* ===== IMAGE BOX MODEL ===== */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #bae6fd;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+/* ===== HOME HERO ===== */
+.hero {
+    text-align: center;
+}
+
+.hero img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    margin: 20px auto;
+}
+
+/* ===== DESTINATIONS: GRID ===== */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.destination-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-card h3 {
+    color: #075985;
+}
+
+/* ===== EXPERIENCES: FLEXBOX ===== */
+.experience-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 25px;
+}
+
+.experience-card {
+    flex: 1 1 280px;
+    max-width: 370px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #075985;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .destination-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
+
+/* ===== SKIP TO MAIN CONTENT ===== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 15px;
+    z-index: 1000;
+    background-color: #ffffff;
+    color: #075985;
+    padding: 12px 20px;
+    border: 2px solid #075985;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* ===== NAVIGATION HOVER ===== */
+nav a {
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ffffff;
+    color: #075985;
+    transform: translateY(-3px);
+}
+
+/* ===== KEYBOARD ACCESSIBILITY ===== */
+nav a:focus-visible,
+.skip-link:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 3px;
+}
+
+/* ===== IMAGE HOVER EFFECT ===== */
+.destination-card,
+.experience-card {
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.destination-card:hover,
+.experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== NTH-CHILD SELECTOR ===== */
+.destination-card:nth-child(even) {
+    background-color: #e0f2fe;
+}
+
+.experience-card:nth-child(odd) img {
+    border-radius: 30px 8px 30px 8px;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    nav a,
+    .destination-card,
+    .experience-card {
+        transition: none;
+    }
+}
